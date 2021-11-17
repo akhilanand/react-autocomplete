@@ -3,7 +3,7 @@ import Autocomplete from "./Autocomplete";
 
 
 const SearchBox = ({ placeholder }) => {
-    const [suggestions, setSuggestions] = useState([
+    const [suggestions] = useState([
         'Riafy','Webleks','Ovalion','Ewokesoft'
       ])
     return (
