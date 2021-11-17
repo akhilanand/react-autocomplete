@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 
 class Autocomplete extends Component {
   static propTypes = {
+    name: PropTypes.string,
     placeholder: PropTypes.string,
     suggestions: PropTypes.instanceOf(Array)
   };
 
   static defaultProps = {
+    name: "search",
     placeholder: 'Search Here..',
     suggestions: []
   };
@@ -23,9 +25,7 @@ class Autocomplete extends Component {
       // Whether or not the suggestion list is shown
       showSuggestions: false,
       // What the user has entered
-      userInput: "",
-
-      placeholder: 'Search Here..',
+      userInput: ""
     };
   }
 
@@ -94,8 +94,7 @@ class Autocomplete extends Component {
         activeSuggestion,
         filteredSuggestions,
         showSuggestions,
-        userInput,
-        placeholder
+        userInput
       }
     } = this;
 
@@ -123,7 +122,7 @@ class Autocomplete extends Component {
         );
       } else {
         suggestionsListComponent = (
-          <div class="no-suggestions">
+          <div className="no-suggestions">
             <em>No suggestions, you're on your own!</em>
           </div>
         );
@@ -134,10 +133,11 @@ class Autocomplete extends Component {
       <Fragment>
         <input
           type="text"
+          name={this.props.name}
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={userInput}
-          placeholder={placeholder}
+          placeholder={this.props.placeholder}
         />
         {suggestionsListComponent}
       </Fragment>

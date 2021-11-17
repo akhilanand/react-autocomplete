@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 const Button = ({ color, title, onClick }) => {
-    return <button onClick={onClick} className='btn search-btn' style={{backgroundColor:color}}>{title}</button>
+    return <input type="submit" onClick={onClick} className='btn search-btn' style={{backgroundColor:color}} value={title}/>
 }
 
 Button.defaultProps = {

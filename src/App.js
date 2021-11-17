@@ -4,15 +4,30 @@ import SearchBox from './components/SearchBox'
 
 
 const App = () => {
-  const onClick = (e) => {
-    console.log('obj')
+
+  const onClick = (query) => {
+    console.log('query',query)
   }
+
+  const onSubmit = (event) => {
+    event.preventDefault()
+    let searchQuery = event.target.elements.search.value; 
+    if(!searchQuery){
+      alert('Please enter search text!');
+      return
+    }else{
+      window.location.href = "https://www.google.com/search?q="+searchQuery;
+    }
+  }
+
   return (
     <div className="container">
       <Header/>
       <div className='form-control'>
-        <SearchBox placeholder='Search Here..'/>
-        <Button title='Search' onClick={onClick}/>
+        <form className='search-form' onSubmit={onSubmit}>
+          <SearchBox name='search' placeholder='Search Here..'/>
+          <Button title='Search' onClick={onClick}/>
+        </form>
       </div>
     </div>
   );

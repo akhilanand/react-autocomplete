@@ -2,13 +2,13 @@ import { useState } from 'react'
 import Autocomplete from "./Autocomplete";
 
 
-const SearchBox = ({ placeholder }) => {
+const SearchBox = ({ name, placeholder }) => {
     const [suggestions] = useState([
         'Riafy','Webleks','Ovalion','Ewokesoft'
       ])
     return (
         <div className='search-box'>
-            <Autocomplete placeholder={placeholder}
+            <Autocomplete name={name} placeholder={placeholder}
                 suggestions={suggestions}
             />
         </div>
